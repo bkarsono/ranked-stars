@@ -79,3 +79,6 @@ Icon
 
 # Firebase
 .firebase/
+
+# Misc
+.env
