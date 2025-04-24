@@ -30,8 +30,11 @@
         <div class="container">
           <div class="row">
             <button @click="startGame()" class="btn btn-primary">
-              Thank you Brawlify.com!
+              Thank you Brawlify.com! Press to show the draft!
             </button>
+            <div>
+              <div v-for="brawler in brawlers">Hi</div>
+            </div>
           </div>
         </div>
       </div>

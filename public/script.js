@@ -2,7 +2,9 @@ const { createApp } = Vue;
 
 createApp({
   data() {
-    return {};
+    return {
+      brawlers: [],
+    };
   },
   methods: {
     startGame() {
@@ -16,6 +18,7 @@ createApp({
         })
         .then((data) => {
           console.log(data);
+          this.brawlers = data.list;
         })
         .catch((error) => console.log(error));
     },
