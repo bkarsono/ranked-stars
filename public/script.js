@@ -10,7 +10,10 @@ createApp({
   methods: {
     startGame() {
       fetch("https://api.brawlstars.com/v1/brawlers", {
-        Authorization: this.API_KEY,
+        methods: "GET",
+        headers: {
+          Authorization: this.API_KEY,
+        },
       })
         .then((response) => {
           return response.json();
