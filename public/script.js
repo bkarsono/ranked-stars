@@ -9,13 +9,33 @@ $(document).ready(() => {
   moveBackground();
 });
 
-function moveBackground() {
-  spawn();
-  setInterval(spawn, 10000);
+function spawnBottomBackground() {
+  spawn(200, 900);
+  spawn(400, 850);
+  spawn(600, 800);
+  spawn(800, 750);
+  spawn(1000, 700);
 }
 
-function spawn() {
-  const background = new Background(1000, 500);
+function spawnStaggeredBackground() {
+  spawn(100, 800);
+  spawn(300, 750);
+  spawn(500, 700);
+  spawn(700, 650);
+  spawn(900, 600);
+}
+
+function moveBackground() {
+  spawnBottomBackground();
+  spawnStaggeredBackground();
+  setInterval(() => {
+    spawnBottomBackground();
+    spawnStaggeredBackground();
+  }, 4000);
+}
+
+function spawn(x, y) {
+  const background = new Background(x, y);
   move(background);
 }
 
