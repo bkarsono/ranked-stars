@@ -98,6 +98,8 @@ createApp({
         16000094: 91000,
       },
       brawlers: [],
+      topRowBrawlers: [],
+      bottomRowBrawlers: [],
     };
   },
   methods: {
@@ -122,16 +124,14 @@ createApp({
             }
             return a.rarity.id - b.rarity.id;
           });
+          this.topRowBrawlers = this.brawlers.filter(
+            (brawler, index) => index % 2 === 0
+          );
+          this.bottomRowBrawlers = this.brawlers.filter(
+            (brawler, index) => index % 2 === 1
+          );
         })
         .catch((error) => console.log(error));
-    },
-  },
-  computed: {
-    topRowBrawlers() {
-      return this.brawlers.filter((_, index) => index % 2 === 0);
-    },
-    bottomRowBrawlers() {
-      return this.brawlers.filter((_, index) => index % 2 !== 0);
     },
   },
 }).mount("#app");
