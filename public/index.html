@@ -72,6 +72,10 @@
                   class="dimmer"
                 ></div>
                 <div
+                  v-if="currentBrawler === brawler.name"
+                  class="inner-box"
+                ></div>
+                <div
                   class="brawler-name"
                   :class="{'brawler-name-selected': currentBrawler === brawler.name, 'brawler-name-not-selected': currentBrawler !== brawler.name, }"
                 >
@@ -99,6 +103,10 @@
                 <div
                   v-if="currentBrawler === brawler.name"
                   class="dimmer"
+                ></div>
+                <div
+                  v-if="currentBrawler === brawler.name"
+                  class="inner-box"
                 ></div>
                 <div
                   class="brawler-name"
