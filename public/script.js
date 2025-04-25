@@ -98,7 +98,8 @@ createApp({
         16000094: 91000,
       },
       currentBrawler: "",
-      backgroundMusic: new Audio(),
+      backgroundMusic: new Audio("./assets/music.m4a"),
+      joinSFX: new Audio("./assets/join.mp3"),
       brawlers: [],
       topRowBrawlers: [],
       bottomRowBrawlers: [],
@@ -106,6 +107,9 @@ createApp({
   },
   methods: {
     startGame() {
+      if (this.brawlers.length > 0) {
+        return;
+      }
       fetch("https://api.brawlify.com/v1/brawlers")
         .then((response) => {
           return response.json();
@@ -130,8 +134,7 @@ createApp({
           );
         })
         .catch((error) => console.log(error));
-      this.backgroundMusic.pause();
-      this.backgroundMusic = new Audio("./assets/music.m4a");
+      this.joinSFX.play();
       this.backgroundMusic.loop = true;
       this.backgroundMusic.play();
     },
