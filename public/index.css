@@ -28,6 +28,7 @@ body {
 }
 
 .brawler {
+  cursor: pointer;
   position: relative;
   height: 150px;
   min-width: 225px;

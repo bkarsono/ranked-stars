@@ -97,6 +97,7 @@ createApp({
         16000093: 78000,
         16000094: 91000,
       },
+      currentBrawler: "",
       backgroundMusic: new Audio(),
       brawlers: [],
       topRowBrawlers: [],
