@@ -123,8 +123,27 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  border: solid;
   z-index: -9999;
+}
+
+.curBackground {
+  position: absolute;
+  height: 42px;
+  width: 42px;
+  z-index: 9;
+  right: 0px;
+  top: 0px;
+}
+
+.curBackground img {
+  position: relative;
+  z-index: 10;
+  height: 80px;
+  left: -17px;
+  top: -15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .common {
