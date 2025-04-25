@@ -32,8 +32,15 @@ body {
   position: relative;
   height: 150px;
   min-width: 225px;
-  border: black 7px solid;
   overflow: hidden;
+}
+
+.brawler-not-selected {
+  border: black 7px solid;
+}
+
+.brawler-selected {
+  border: white 7px solid;
 }
 
 .brawler img {
@@ -42,11 +49,31 @@ body {
 
 .brawler-name {
   padding-left: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+.brawler-picked {
+  position: absolute;
+  text-align: center;
+  color: black;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-shadow: none;
+  font-size: 34px;
+}
+
+.brawler-name-not-selected {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.brawler-name-selected {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .info {

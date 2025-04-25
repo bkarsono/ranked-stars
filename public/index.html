@@ -54,28 +54,50 @@
               <div
                 @click="currentBrawler = brawler.name"
                 class="brawler"
-                :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
+                :class="{'brawler-selected': currentBrawler === brawler.name, 'brawler-not-selected': currentBrawler !== brawler.name, common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
                 v-for="(brawler, index) in topRowBrawlers"
                 :key="'top-' + index"
               >
                 <img
                   :src="'https://cdn.brawlify.com/brawlers/portraits/' + brawler.id + '.png'"
                 />
-                <div class="brawler-name">{{brawler.name.toUpperCase()}}</div>
+                <div
+                  v-if="currentBrawler === brawler.name"
+                  class="brawler-picked"
+                >
+                  PICKED
+                </div>
+                <div
+                  class="brawler-name"
+                  :class="{'brawler-name-selected': currentBrawler === brawler.name, 'brawler-name-not-selected': currentBrawler !== brawler.name, }"
+                >
+                  {{brawler.name.toUpperCase()}}
+                </div>
               </div>
             </div>
             <div class="d-flex flex-row">
               <div
                 @click="currentBrawler = brawler.name"
                 class="brawler"
-                :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
+                :class="{'brawler-selected': currentBrawler === brawler.name, 'brawler-not-selected': currentBrawler !== brawler.name, common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
                 v-for="(brawler, index) in bottomRowBrawlers"
                 :key="'bottom-' + index"
               >
                 <img
                   :src="'https://cdn.brawlify.com/brawlers/portraits/' + brawler.id + '.png'"
                 />
-                <div class="brawler-name">{{brawler.name.toUpperCase()}}</div>
+                <div
+                  v-if="currentBrawler === brawler.name"
+                  class="brawler-picked"
+                >
+                  PICKED
+                </div>
+                <div
+                  class="brawler-name"
+                  :class="{'brawler-name-selected': currentBrawler === brawler.name, 'brawler-name-not-selected': currentBrawler !== brawler.name, }"
+                >
+                  {{brawler.name.toUpperCase()}}
+                </div>
               </div>
             </div>
           </div>
