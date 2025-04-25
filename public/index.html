@@ -34,7 +34,7 @@
       <div class="flex-fill">
         <!-- Content -->
         <div class="container">
-          <div class="row row-gap-3">
+          <div class="row">
             <button
               class="btn btn-primary"
               style="
@@ -44,36 +44,42 @@
               "
               @click="startGame()"
             >
-              Thank you Brawlify.com! Press to show the draft!
+              Thank you Brawlify.com! Press to start the draft!
             </button>
-            <div class="brawler-selection d-flex flex-column">
-              <div class="d-flex flex-row">
-                <div
-                  class="brawler"
-                  :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
-                  v-for="(brawler, index) in topRowBrawlers"
-                  :key="'top-' + index"
-                >
-                  <img
-                    :src="'https://cdn.brawlify.com/brawlers/portraits/' + brawler.id + '.png'"
-                  />
-                  <div class="brawler-name">{{brawler.name.toUpperCase()}}</div>
-                </div>
-              </div>
-              <div class="d-flex flex-row">
-                <div
-                  class="brawler"
-                  :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
-                  v-for="(brawler, index) in bottomRowBrawlers"
-                  :key="'bottom-' + index"
-                >
-                  <img
-                    :src="'https://cdn.brawlify.com/brawlers/portraits/' + brawler.id + '.png'"
-                  />
-                  <div class="brawler-name">{{brawler.name.toUpperCase()}}</div>
-                </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="col-8 brawler-selection d-flex flex-column mx-auto">
+            <div class="d-flex flex-row">
+              <div
+                class="brawler"
+                :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
+                v-for="(brawler, index) in topRowBrawlers"
+                :key="'top-' + index"
+              >
+                <img
+                  :src="'https://cdn.brawlify.com/brawlers/portraits/' + brawler.id + '.png'"
+                />
+                <div class="brawler-name">{{brawler.name.toUpperCase()}}</div>
               </div>
             </div>
+            <div class="d-flex flex-row">
+              <div
+                class="brawler"
+                :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
+                v-for="(brawler, index) in bottomRowBrawlers"
+                :key="'bottom-' + index"
+              >
+                <img
+                  :src="'https://cdn.brawlify.com/brawlers/portraits/' + brawler.id + '.png'"
+                />
+                <div class="brawler-name">{{brawler.name.toUpperCase()}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
             <div class="info">
               If you are on a computer, press shift and scroll to navigate the
               brawler selection.
