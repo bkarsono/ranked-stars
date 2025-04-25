@@ -68,6 +68,10 @@
                   PICKED
                 </div>
                 <div
+                  v-if="currentBrawler === brawler.name"
+                  class="dimmer"
+                ></div>
+                <div
                   class="brawler-name"
                   :class="{'brawler-name-selected': currentBrawler === brawler.name, 'brawler-name-not-selected': currentBrawler !== brawler.name, }"
                 >
@@ -92,6 +96,10 @@
                 >
                   PICKED
                 </div>
+                <div
+                  v-if="currentBrawler === brawler.name"
+                  class="dimmer"
+                ></div>
                 <div
                   class="brawler-name"
                   :class="{'brawler-name-selected': currentBrawler === brawler.name, 'brawler-name-not-selected': currentBrawler !== brawler.name, }"

@@ -140,6 +140,9 @@ createApp({
       this.backgroundMusic.play();
     },
     selectBrawler(brawler) {
+      if (this.currentBrawler === brawler.name) {
+        return;
+      }
       this.currentBrawler = brawler.name;
       this.selectSFX = new Audio("./assets/select.mp3");
       this.selectSFX.play();
