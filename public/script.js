@@ -97,6 +97,7 @@ createApp({
         16000093: 78000,
         16000094: 91000,
       },
+      backgroundMusic: new Audio(),
       brawlers: [],
       topRowBrawlers: [],
       bottomRowBrawlers: [],
@@ -128,6 +129,10 @@ createApp({
           );
         })
         .catch((error) => console.log(error));
+      this.backgroundMusic.pause();
+      this.backgroundMusic = new Audio("./assets/music.m4a");
+      this.backgroundMusic.loop = true;
+      this.backgroundMusic.play();
     },
   },
 }).mount("#app");
