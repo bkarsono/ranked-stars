@@ -100,6 +100,7 @@ createApp({
       currentBrawler: "",
       backgroundMusic: new Audio("./assets/music.m4a"),
       joinSFX: new Audio("./assets/join.mp3"),
+      selectSFX: new Audio(),
       brawlers: [],
       topRowBrawlers: [],
       bottomRowBrawlers: [],
@@ -137,6 +138,11 @@ createApp({
       this.joinSFX.play();
       this.backgroundMusic.loop = true;
       this.backgroundMusic.play();
+    },
+    selectBrawler(brawler) {
+      this.currentBrawler = brawler.name;
+      this.selectSFX = new Audio("./assets/select.mp3");
+      this.selectSFX.play();
     },
   },
 }).mount("#app");
