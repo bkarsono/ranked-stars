@@ -2,6 +2,7 @@ body {
   background-color: #0a5dba;
   font-family: "Lilita One", sans-serif;
   color: white;
+  font-size: 34px;
   text-shadow: -2px -2px 0 #040404, 0 -2px 0 #040404, 2px -2px 0 #040404, 2px 0 0 #040404, 2px 2px 0 #040404, 0 2px 0 #040404, -2px 2px 0 #040404, -2px 0 0 #040404, 0 3.5px 0 #040404, -2px 3.5px 0 #040404, 2px 3.5px 0 #040404;
 }
 
@@ -32,7 +33,6 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  font-size: 34px;
 }
 
 .common {
