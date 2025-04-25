@@ -43,19 +43,6 @@ class Background {
   }
 
   // Requires: called by the user
-  // Modifies:
-  // Effects: return true if current Asteroid has reached its destination, i.e., it should now disappear
-  //          return false otherwise
-  hasReachedEnd() {
-    // get the current position of interest (either the x position or the y position):
-    const cur_pos = this.hide_axis === "x" ? this.cur_x : this.cur_y;
-    // determine if the asteroid has reached its destination:
-    return this.sign_of_switch === "pos"
-      ? cur_pos > this.hide_after
-      : cur_pos < this.hide_after;
-  }
-
-  // Requires: called by the user
   // Modifies: cur_y, cur_x
   // Effects: move this Asteroid 1 unit in its designated direction
   updatePosition() {
