@@ -111,13 +111,18 @@
           </div>
         </div>
         <div class="container">
-          <div class="row">
+          <div class="row gap-3">
             <div class="info">
               If you are on a computer, press shift and scroll to navigate the
               brawler selection.
             </div>
             <div v-if="brawlers.length > 0" class="info">
               You selected: {{currentBrawler}}
+            </div>
+            <div class="col-6 mx-auto info">
+              <button class="btn btn-secondary" @click="handleMute()">
+                {{muteButtonText}}
+              </button>
             </div>
           </div>
         </div>

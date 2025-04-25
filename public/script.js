@@ -1,6 +1,12 @@
 const { createApp } = Vue;
 
 createApp({
+  mounted() {
+    window.addEventListener("keyup", this.handleKey);
+  },
+  beforeUnmount() {
+    window.removeEventListener("keyup", this.handleKey);
+  },
   data() {
     return {
       brawlerReleaseDates: {
@@ -97,6 +103,7 @@ createApp({
         16000093: 78000,
         16000094: 91000,
       },
+      muteButtonText: "Mute",
       currentBrawler: "",
       backgroundMusic: new Audio("./assets/music.m4a"),
       joinSFX: new Audio("./assets/join.mp3"),
@@ -146,6 +153,19 @@ createApp({
       this.currentBrawler = brawler.name;
       this.selectSFX = new Audio("./assets/select.mp3");
       this.selectSFX.play();
+    },
+    handleKey(e) {
+      if (e.key === "m") {
+        this.handleMute();
+      }
+    },
+    handleMute() {
+      this.backgroundMusic.muted = !this.backgroundMusic.muted;
+      if (this.backgroundMusic.muted) {
+        this.muteButtonText = "Unmute";
+      } else {
+        this.muteButtonText = "Mute";
+      }
     },
   },
 }).mount("#app");
