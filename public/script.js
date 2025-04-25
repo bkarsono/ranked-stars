@@ -18,11 +18,11 @@ function spawnBottomBackground() {
 }
 
 function spawnStaggeredBackground() {
-  spawn(100, 800);
-  spawn(300, 750);
-  spawn(500, 700);
-  spawn(700, 650);
-  spawn(900, 600);
+  spawn(50, 800);
+  spawn(250, 750);
+  spawn(450, 700);
+  spawn(650, 650);
+  spawn(850, 600);
 }
 
 function moveBackground() {
