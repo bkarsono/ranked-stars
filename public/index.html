@@ -119,14 +119,20 @@
             <div v-if="brawlers.length > 0" class="info">
               You selected: {{currentBrawler}}
             </div>
-            <div class="col-6 mx-auto info">
-              <button class="btn btn-secondary" @click="handleMute()">
-                {{muteButtonText}}
-              </button>
-            </div>
           </div>
         </div>
       </div>
+      <button
+        style="
+          --bs-btn-padding-y: 1rem;
+          --bs-btn-padding-x: 1rem;
+          --bs-btn-font-size: 3rem;
+        "
+        class="btn btn-success mute-button"
+        @click="handleMute()"
+      >
+        {{muteButtonText}}
+      </button>
     </div>
     <script src="./script.js"></script>
   </body>
