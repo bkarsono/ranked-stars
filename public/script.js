@@ -10,24 +10,50 @@ $(document).ready(() => {
 });
 
 function spawnBottomBackground() {
-  spawn(200, 900);
-  spawn(400, 850);
-  spawn(600, 800);
-  spawn(800, 750);
-  spawn(1000, 700);
+  for (let i = 0; i < 20; ++i) {
+    spawn(200 + 200 * i, 1500 - 50 * i);
+  }
+  // spawn(200, 900);
+  // spawn(400, 850);
+  // spawn(600, 800);
+  // spawn(800, 750);
+  // spawn(1000, 700);
 }
 
 function spawnStaggeredBackground() {
-  spawn(50, 800);
-  spawn(250, 750);
-  spawn(450, 700);
-  spawn(650, 650);
-  spawn(850, 600);
+  for (let i = 0; i < 20; ++i) {
+    spawn(50 + 200 * i, 1400 - 50 * i);
+  }
+  // spawn(50, 800);
+  // spawn(250, 750);
+  // spawn(450, 700);
+  // spawn(650, 650);
+  // spawn(850, 600);
+}
+
+function fillBackground() {
+  for (let j = 0; j < 12; ++j) {
+    for (let i = 0; i < 20; ++i) {
+      spawn((-100 - 150 * j) + (200 * i), (1300 - 100 * j) - (50 * i));
+    }
+  }
+  // for (let i = 0; i < 20; ++i) {
+  //   spawn(-100 + 200 * i, 1300 - 50 * i);
+  // }
+
+  // for (let i = 0; i < 20; ++i) {
+  //   spawn(-250 + 200 * i, 1200 - 50 * i);
+  // }
+
+  // for (let i = 0; i < 20; ++i) {
+  //   spawn(-400 + 200 * i, 1100 - 50 * i);
+  // }
 }
 
 function moveBackground() {
   spawnBottomBackground();
   spawnStaggeredBackground();
+  fillBackground();
   setInterval(() => {
     spawnBottomBackground();
     spawnStaggeredBackground();
@@ -46,7 +72,7 @@ function move(background) {
   setTimeout(() => {
     background.id.remove();
     clearInterval(backgroundMovement);
-  }, 20000);
+  }, 40000);
 }
 
 // Starter Code for randomly generating and moving an asteroid on screen
