@@ -2,6 +2,12 @@
   overflow: auto;
 }
 
-.brawler-selection img {
+.brawler {
   height: 100px;
+  min-width: 175px;
+  border: black 7px solid;
+}
+
+.brawler img {
+  height: 100%;
 }
