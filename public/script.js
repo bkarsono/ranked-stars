@@ -1,5 +1,13 @@
 const { createApp } = Vue;
 
+const REFRESH_RATE = 15;
+const LIFETIME = 80000;
+const DELAY = 4000;
+const BOTTOM = 2500;
+const LEFT = 200;
+const NUM_STARS = 20;
+const STARTING_LINES = 20;
+
 let backgroundSpeed = 1;
 let currentBackground = 1;
 
@@ -10,8 +18,8 @@ $(document).ready(() => {
 });
 
 function spawnBottomBackground() {
-  for (let i = 0; i < 20; ++i) {
-    spawn(200 + 200 * i, 1500 - 50 * i);
+  for (let i = 0; i < NUM_STARS; ++i) {
+    spawn(LEFT + 200 * i, BOTTOM - 50 * i);
   }
   // spawn(200, 900);
   // spawn(400, 850);
@@ -21,8 +29,8 @@ function spawnBottomBackground() {
 }
 
 function spawnStaggeredBackground() {
-  for (let i = 0; i < 20; ++i) {
-    spawn(50 + 200 * i, 1400 - 50 * i);
+  for (let i = 0; i < NUM_STARS; ++i) {
+    spawn(LEFT - 150 + 200 * i, BOTTOM - 100 - 50 * i);
   }
   // spawn(50, 800);
   // spawn(250, 750);
@@ -32,9 +40,9 @@ function spawnStaggeredBackground() {
 }
 
 function fillBackground() {
-  for (let j = 0; j < 12; ++j) {
-    for (let i = 0; i < 20; ++i) {
-      spawn((-100 - 150 * j) + (200 * i), (1300 - 100 * j) - (50 * i));
+  for (let j = 0; j < STARTING_LINES; ++j) {
+    for (let i = 0; i < NUM_STARS; ++i) {
+      spawn(LEFT - 150 * (j + 1) + 200 * i, BOTTOM - 100 * (j + 1) - 50 * i);
     }
   }
   // for (let i = 0; i < 20; ++i) {
@@ -57,7 +65,7 @@ function moveBackground() {
   setInterval(() => {
     spawnBottomBackground();
     spawnStaggeredBackground();
-  }, 4000);
+  }, DELAY);
 }
 
 function spawn(x, y) {
@@ -68,11 +76,11 @@ function spawn(x, y) {
 function move(background) {
   const backgroundMovement = setInterval(() => {
     background.updatePosition();
-  }, 15);
+  }, REFRESH_RATE);
   setTimeout(() => {
     background.id.remove();
     clearInterval(backgroundMovement);
-  }, 40000);
+  }, LIFETIME);
 }
 
 // Starter Code for randomly generating and moving an asteroid on screen
