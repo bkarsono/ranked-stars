@@ -35,25 +35,27 @@
               <div class="d-flex flex-row">
                 <div
                   class="brawler"
-                  :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6}"
+                  :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
                   v-for="(brawler, index) in topRowBrawlers"
                   :key="'top-' + index"
                 >
                   <img
                     :src="'https://cdn.brawlify.com/brawlers/portraits/' + brawler.id + '.png'"
                   />
+                  <div class="brawler-name">{{brawler.name}}</div>
                 </div>
               </div>
               <div class="d-flex flex-row">
                 <div
                   class="brawler"
-                  :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6}"
+                  :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6, 'ultra-legendary': brawler.rarity.id === 7}"
                   v-for="(brawler, index) in bottomRowBrawlers"
                   :key="'bottom-' + index"
                 >
                   <img
                     :src="'https://cdn.brawlify.com/brawlers/portraits/' + brawler.id + '.png'"
                   />
+                  <div class="brawler-name">{{brawler.name}}</div>
                 </div>
               </div>
             </div>
