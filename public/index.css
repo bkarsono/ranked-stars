@@ -111,12 +111,20 @@ body {
   z-index: 21;
 }
 
+.wrapper {
+  top: 0px;
+  left: 0px;
+}
+
 .moving-background {
+  top: 0px;
+  left: 0px;
   position: absolute;
   height: 100%;
   width: 100%;
   overflow: hidden;
   border: solid;
+  z-index: -9999;
 }
 
 .common {

@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
   mounted() {
     window.addEventListener("keyup", this.handleKey);
+    this.moveBackground();
   },
   beforeUnmount() {
     window.removeEventListener("keyup", this.handleKey);
@@ -166,6 +167,25 @@ createApp({
       } else {
         this.muteButtonText = "Mute";
       }
+    },
+    moveBackground() {
+      setInterval(this.spawn, 1000);
+    },
+    spawn() {
+      const background = new Background();
+      this.move(background);
+    },
+    move(background) {
+      const backgroundMovement = setInterval(() => {
+        // determine whether Asteroid has reached its end position
+        if (background.hasReachedEnd()) {
+          // i.e. outside the game border
+          // remove this Asteroid from DOM (using jQuery .remove() method)
+          background.id.remove();
+          // clear the interval that moves this Asteroid
+          clearInterval(backgroundMovement);
+        }
+      }, 15);
     },
   },
 }).mount("#app");
