@@ -15,7 +15,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <!--Optional Theme-->
     <!--Custom Style-->
     <link rel="stylesheet" type="text/css" href="./index.css" />
     <!--Vue-->
@@ -29,13 +28,14 @@
         <!-- Content -->
         <div class="container">
           <div class="row">
-            <button @click="startGame()" class="btn btn-primary">
+            <button class="btn btn-primary" @click="startGame()">
               Thank you Brawlify.com! Press to show the draft!
             </button>
             <div class="brawler-selection d-flex flex-column">
               <div class="d-flex flex-row">
                 <div
                   class="brawler"
+                  :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6}"
                   v-for="(brawler, index) in topRowBrawlers"
                   :key="'top-' + index"
                 >
@@ -47,6 +47,7 @@
               <div class="d-flex flex-row">
                 <div
                   class="brawler"
+                  :class="{common: brawler.rarity.id === 1, rare: brawler.rarity.id === 2, 'super-rare': brawler.rarity.id === 3, epic: brawler.rarity.id === 4, mythic: brawler.rarity.id === 5, legendary: brawler.rarity.id === 6}"
                   v-for="(brawler, index) in bottomRowBrawlers"
                   :key="'bottom-' + index"
                 >

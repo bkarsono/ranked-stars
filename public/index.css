@@ -11,3 +11,27 @@
 .brawler img {
   height: 100%;
 }
+
+.common {
+  background-color: #96daf5;
+}
+
+.rare {
+  background-color: #34e01f;
+}
+
+.super-rare {
+  background-color: #0089fa;
+}
+
+.epic {
+  background-color: #b814e8;
+}
+
+.mythic {
+  background-color: #ff1c24;
+}
+
+.legendary {
+  background-color: #fdf322;
+}

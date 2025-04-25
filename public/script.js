@@ -104,11 +104,7 @@ createApp({
   },
   methods: {
     startGame() {
-      fetch("https://api.brawlify.com/v1/brawlers", {
-        headers: {
-          "User-Agent": "ranked-stars.web.app",
-        },
-      })
+      fetch("https://api.brawlify.com/v1/brawlers")
         .then((response) => {
           return response.json();
         })
