@@ -43,14 +43,6 @@ body {
   overflow: hidden;
 }
 
-.brawler-not-selected {
-  /* border: black 7px solid; */
-}
-
-.brawler-selected {
-  /* border: white 7px solid; */
-}
-
 .brawler img {
   height: 100%;
 }
