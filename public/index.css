@@ -15,9 +15,10 @@ body {
 
 .brawler {
   position: relative;
-  height: 100px;
-  min-width: 175px;
+  height: 200px;
+  min-width: 275px;
   border: black 7px solid;
+  overflow: hidden;
 }
 
 .brawler img {
@@ -30,7 +31,8 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 175px;
+  width: 100%;
+  font-size: 34px;
 }
 
 .common {
