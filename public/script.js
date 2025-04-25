@@ -325,16 +325,11 @@ createApp({
     move(background) {
       const backgroundMovement = setInterval(() => {
         background.updatePosition();
-        // determine whether Asteroid has reached its end position
-        if (background.hasReachedEnd()) {
-          // i.e. outside the game border
-          // remove this Asteroid from DOM (using jQuery .remove() method)
-          background.id.remove();
-          // clear the interval that moves this Asteroid
-          clearInterval(backgroundMovement);
-          console.log("helo");
-        }
       }, 15);
+      setTimeout(() => {
+        background.id.remove();
+        clearInterval(backgroundMovement);
+      }, 20000);
     },
   },
 }).mount("#app");
