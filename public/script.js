@@ -1,21 +1,38 @@
 const { createApp } = Vue;
 
-let backgroundSpeed = 3;
+let backgroundSpeed = 1;
 let currentBackground = 1;
 
 $(document).ready(() => {
   game_screen = $(".wrapper");
   movingBackground = $(".moving-background");
+  moveBackground();
 });
 
-function getRandomNumber(min, max) {
-  return Math.random() * (max - min) + min;
+function moveBackground() {
+  spawn();
+  setInterval(spawn, 10000);
+}
+
+function spawn() {
+  const background = new Background(1000, 500);
+  move(background);
+}
+
+function move(background) {
+  const backgroundMovement = setInterval(() => {
+    background.updatePosition();
+  }, 15);
+  setTimeout(() => {
+    background.id.remove();
+    clearInterval(backgroundMovement);
+  }, 20000);
 }
 
 // Starter Code for randomly generating and moving an asteroid on screen
 class Background {
   // constructs an Asteroid object
-  constructor() {
+  constructor(x, y) {
     /*------------------------Public Member Variables------------------------*/
     // create a new Asteroid div and append it to DOM so it can be modified later
     const objectString =
@@ -27,17 +44,13 @@ class Background {
     this.id = $("#b-" + currentBackground);
     currentBackground++; // ensure each Asteroid has its own id
     // current x, y position of this Asteroid
-    this.cur_x = 0; // number of pixels from right
-    this.cur_y = 0; // number of pixels from top
+    this.cur_x = x; // number of pixels from right
+    this.cur_y = y; // number of pixels from top
 
     /*------------------------Private Member Variables------------------------*/
     // member variables for how to move the Asteroid
-    this.x_dest = 0;
-    this.y_dest = 0;
-    // member variables indicating when the Asteroid has reached the border
-    this.hide_axis = "x";
-    this.hide_after = 0;
-    this.sign_of_switch = "neg";
+    this.x_dest = -1;
+    this.y_dest = -2;
     // spawn an Asteroid at a random location on a random side of the board
     this.#spawnAsteroid();
   }
@@ -59,69 +72,6 @@ class Background {
   // Effects: randomly determines an appropriate starting/ending location for this Asteroid
   //          all asteroids travel at the same speed
   #spawnAsteroid() {
-    // REMARK: YOU DO NOT NEED TO KNOW HOW THIS METHOD'S SOURCE CODE WORKS
-    const x = getRandomNumber(0, 1280);
-    const y = getRandomNumber(0, 720);
-    const floor = 784;
-    const ceiling = -64;
-    const left = 1344;
-    const right = -64;
-    const major_axis = Math.floor(getRandomNumber(0, 2));
-    const minor_aix = Math.floor(getRandomNumber(0, 2));
-    let num_ticks;
-
-    if (major_axis == 0 && minor_aix == 0) {
-      this.cur_y = floor;
-      this.cur_x = x;
-      const bottomOfScreen = game_screen.height();
-      num_ticks = Math.floor((bottomOfScreen + 64) / backgroundSpeed) || 1;
-
-      this.x_dest = game_screen.width() - x;
-      this.x_dest = (this.x_dest - x) / num_ticks + getRandomNumber(-0.5, 0.5);
-      this.y_dest = -backgroundSpeed - getRandomNumber(0, 0.5);
-      this.hide_axis = "y";
-      this.hide_after = -64;
-      this.sign_of_switch = "neg";
-    }
-    if (major_axis == 0 && minor_aix == 1) {
-      this.cur_y = ceiling;
-      this.cur_x = x;
-      const bottomOfScreen = game_screen.height();
-      num_ticks = Math.floor((bottomOfScreen + 64) / backgroundSpeed) || 1;
-
-      this.x_dest = game_screen.width() - x;
-      this.x_dest = (this.x_dest - x) / num_ticks + getRandomNumber(-0.5, 0.5);
-      this.y_dest = backgroundSpeed + getRandomNumber(0, 0.5);
-      this.hide_axis = "y";
-      this.hide_after = 784;
-      this.sign_of_switch = "pos";
-    }
-    if (major_axis == 1 && minor_aix == 0) {
-      this.cur_y = y;
-      this.cur_x = left;
-      const bottomOfScreen = game_screen.width();
-      num_ticks = Math.floor((bottomOfScreen + 64) / backgroundSpeed) || 1;
-
-      this.x_dest = -backgroundSpeed - getRandomNumber(0, 0.5);
-      this.y_dest = game_screen.height() - y;
-      this.y_dest = (this.y_dest - y) / num_ticks + getRandomNumber(-0.5, 0.5);
-      this.hide_axis = "x";
-      this.hide_after = -64;
-      this.sign_of_switch = "neg";
-    }
-    if (major_axis == 1 && minor_aix == 1) {
-      this.cur_y = y;
-      this.cur_x = right;
-      const bottomOfScreen = game_screen.width();
-      num_ticks = Math.floor((bottomOfScreen + 64) / backgroundSpeed) || 1;
-
-      this.x_dest = backgroundSpeed + getRandomNumber(0, 0.5);
-      this.y_dest = game_screen.height() - y;
-      this.y_dest = (this.y_dest - y) / num_ticks + getRandomNumber(-0.5, 0.5);
-      this.hide_axis = "x";
-      this.hide_after = 1344;
-      this.sign_of_switch = "pos";
-    }
     // show this Asteroid's initial position on screen
     this.id.css("top", this.cur_y);
     this.id.css("right", this.cur_x);
@@ -137,7 +87,6 @@ class Background {
 createApp({
   mounted() {
     window.addEventListener("keyup", this.handleKey);
-    this.moveBackground();
   },
   beforeUnmount() {
     window.removeEventListener("keyup", this.handleKey);
@@ -301,22 +250,6 @@ createApp({
       } else {
         this.muteButtonText = "Mute";
       }
-    },
-    moveBackground() {
-      setInterval(this.spawn, 1000);
-    },
-    spawn() {
-      const background = new Background();
-      this.move(background);
-    },
-    move(background) {
-      const backgroundMovement = setInterval(() => {
-        background.updatePosition();
-      }, 15);
-      setTimeout(() => {
-        background.id.remove();
-        clearInterval(backgroundMovement);
-      }, 20000);
     },
   },
 }).mount("#app");
