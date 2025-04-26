@@ -249,6 +249,9 @@ createApp({
       brawlers: [],
       topRowBrawlers: [],
       bottomRowBrawlers: [],
+      pins: {},
+      blueBans: ["Clancy", "Bonnie", "Shelly"],
+      redBans: ["Hank", "Ollie", "Lumi"],
     };
   },
   methods: {
@@ -264,6 +267,9 @@ createApp({
           console.log(data);
           this.brawlers = data.list;
           this.brawlers = this.brawlers.filter((brawler) => brawler.released);
+          this.brawlers.forEach((brawler) => {
+            this.pins[brawler.name] = brawler.imageUrl3;
+          });
           this.brawlers.sort((a, b) => {
             if (a.rarity.id === b.rarity.id) {
               return (
