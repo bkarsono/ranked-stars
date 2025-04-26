@@ -15,6 +15,12 @@ body {
   text-shadow: -2px -2px 0 #040404, 0 -2px 0 #040404, 2px -2px 0 #040404, 2px 0 0 #040404, 2px 2px 0 #040404, 0 2px 0 #040404, -2px 2px 0 #040404, -2px 0 0 #040404, 0 3.5px 0 #040404, -2px 3.5px 0 #040404, 2px 3.5px 0 #040404;
 }
 
+.directive {
+  color: #f7fca9;
+  font-size: 34px;
+  text-align: center;
+}
+
 .mute-button {
   position: fixed;
   right: 30px;
@@ -225,6 +231,20 @@ body {
   transform: translate(-50%, -50%);
   height: 100px;
   width: 100px;
+  z-index: 10;
+}
+
+.blue-team-text {
+  position: absolute;
+  top: 0px;
+  left: 35px;
+  z-index: 10;
+}
+
+.red-team-text {
+  position: absolute;
+  top: 0px;
+  right: 35px;
   z-index: 10;
 }
 
