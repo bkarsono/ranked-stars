@@ -175,11 +175,12 @@ body {
 .blue-team {
   background-color: #2161d4;
   transform: skew(-5deg, 0deg);
-  height: 20vh;
+  height: 30vh;
 }
 
 .red-team {
   background-color: #a3153c;
   transform: skew(-5deg, 0deg);
-  height: 20vh;
+  height: 30vh;
+  border-left: 5px solid #000;
 }
