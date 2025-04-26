@@ -233,6 +233,7 @@ body {
   top: 0px;
   left: 0px;
   z-index: 10;
+  height: 100%;
 }
 
 .red-bans {
@@ -240,6 +241,13 @@ body {
   top: 0px;
   right: 0px;
   z-index: 10;
+  height: 100%;
+}
+
+.ban {
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
 }
 
 .ban img {

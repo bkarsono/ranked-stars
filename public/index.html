@@ -139,7 +139,7 @@
         <div class="container-fluid">
           <div class="row teams" v-if="brawlers.length > 0">
             <div class="blue-team col-6">
-              <div class="blue-bans d-flex flex-column">
+              <div class="blue-bans d-flex flex-column justify-content-center gap-3">
                 <div class="ban" v-for="brawler in blueBans">
                   <img :src="pins[brawler]" />
                 </div>
@@ -147,7 +147,7 @@
             </div>
             <img class="versus" src="./assets/versus.png" />
             <div class="red-team col-6">
-              <div class="red-bans d-flex flex-column">
+              <div class="red-bans d-flex flex-column justify-content-center gap-3">
                 <div class="ban" v-for="brawler in redBans">
                   <img :src="pins[brawler]" />
                 </div>
