@@ -40,6 +40,8 @@ body {
   position: relative;
   height: 20vh;
   overflow: hidden;
+  height: 150px;
+  min-width: 225px;
 }
 
 .brawler img {
