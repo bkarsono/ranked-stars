@@ -2,13 +2,13 @@ const { createApp } = Vue;
 
 const REFRESH_RATE = 15;
 const LIFETIME = 80000;
-const DELAY = 4000;
+const DELAY = 8000;
 const BOTTOM = 2500;
 const LEFT = 200;
 const NUM_STARS = 20;
 const STARTING_LINES = 20;
 
-let backgroundSpeed = 1;
+let backgroundSpeed = 0.5;
 let currentBackground = 1;
 
 $(document).ready(() => {
