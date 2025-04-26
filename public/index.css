@@ -175,7 +175,8 @@ body {
 
 .teams {
   position: relative;
-  border: 5px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
   border-radius: 5px;
   box-shadow: 0 2px black;
   overflow: hidden;
