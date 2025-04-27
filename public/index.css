@@ -285,3 +285,33 @@ body {
 .denied img {
   height: 35px;
 }
+
+.blue-picks {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.red-picks {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.pick {
+  width: 100px;
+  height: 100px;
+  border: black solid 2px;
+  overflow: hidden;
+  background-color: #18132c;
+}
+
+.pick img {
+  height: 100%;
+}

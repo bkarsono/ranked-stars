@@ -250,8 +250,11 @@ createApp({
       topRowBrawlers: [],
       bottomRowBrawlers: [],
       pins: {},
+      portraits: {},
       blueBans: ["Clancy", "Bonnie", "Shelly"],
       redBans: ["Hank", "Ollie", "Lumi"],
+      bluePicks: ["Meeple", "8-Bit"],
+      redPicks: ["Tick", "Grom", "Sprout"],
     };
   },
   methods: {
@@ -269,6 +272,10 @@ createApp({
           this.brawlers = this.brawlers.filter((brawler) => brawler.released);
           this.brawlers.forEach((brawler) => {
             this.pins[brawler.name] = brawler.imageUrl3;
+            this.portraits[brawler.name] =
+              "https://cdn.brawlify.com/brawlers/portraits/" +
+              brawler.id +
+              ".png";
           });
           this.brawlers.sort((a, b) => {
             if (a.rarity.id === b.rarity.id) {

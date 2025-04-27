@@ -151,6 +151,14 @@
                   </div>
                 </div>
               </div>
+              <div class="blue-picks d-flex justify-content-center align-items-center gap-3">
+                <div class="pick" v-for="brawler in bluePicks">
+                  <img :src="portraits[brawler]" />
+                </div>
+                <div class="pick">
+                  <img v-if="currentBrawler !== ''" :src="portraits[currentBrawler]">
+                </div>
+              </div>
             </div>
             <img class="versus" src="./assets/versus.png" />
             <div class="red-team col-6">
@@ -163,6 +171,11 @@
                   <div class="denied">
                     <img src="./assets/banned.png" />
                   </div>
+                </div>
+              </div>
+              <div class="red-picks d-flex justify-content-center align-items-center gap-3">
+                <div class="pick" v-for="brawler in redPicks">
+                  <img :src="portraits[brawler]" />
                 </div>
               </div>
             </div>
