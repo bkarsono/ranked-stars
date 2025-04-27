@@ -266,11 +266,23 @@ body {
 }
 
 .ban {
+  position: relative;
   margin-left: 50px;
   margin-right: 50px;
   text-align: center;
+  width: 50px;
 }
 
 .ban img {
   height: 50px;
+}
+
+.denied {
+  position: absolute;
+  bottom: -5px;
+  right: -20px;
+}
+
+.denied img {
+  height: 35px;
 }

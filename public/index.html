@@ -50,9 +50,7 @@
             >
               Thank you Brawlify.com! Press to start the draft!
             </button>
-            <div class="directive" v-else>
-              Pick your Brawler
-            </div>
+            <div class="directive" v-else>Pick your Brawler</div>
           </div>
         </div>
         <div class="container-fluid selection-container">
@@ -148,6 +146,9 @@
               >
                 <div class="ban" v-for="brawler in blueBans">
                   <img :src="pins[brawler]" />
+                  <div class="denied">
+                    <img src="./assets/banned.png" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -159,6 +160,9 @@
               >
                 <div class="ban" v-for="brawler in redBans">
                   <img :src="pins[brawler]" />
+                  <div class="denied">
+                    <img src="./assets/banned.png" />
+                  </div>
                 </div>
               </div>
             </div>
