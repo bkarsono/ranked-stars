@@ -242,6 +242,7 @@ createApp({
         16000094: 91000,
       },
       muteButtonText: "Mute",
+      hideButtonText: "Hide",
       currentBrawler: "",
       backgroundMusic: new Audio("./assets/music.m4a"),
       joinSFX: new Audio("./assets/join.mp3"),
@@ -316,6 +317,13 @@ createApp({
         this.muteButtonText = "Unmute";
       } else {
         this.muteButtonText = "Mute";
+      }
+    },
+    handleHide() {
+      if (this.hideButtonText === "Hide") {
+        this.hideButtonText = "Unhide";
+      } else {
+        this.hideButtonText = "Hide";
       }
     },
   },

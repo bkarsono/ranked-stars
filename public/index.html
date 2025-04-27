@@ -151,12 +151,17 @@
                   </div>
                 </div>
               </div>
-              <div class="blue-picks d-flex justify-content-center align-items-center gap-3">
-                <div class="pick" v-for="brawler in bluePicks">
+              <div
+                class="blue-picks d-flex justify-content-center align-items-center gap-3"
+              >
+                <div v-if="hideButtonText === 'Hide'" class="pick" v-for="brawler in bluePicks">
                   <img :src="portraits[brawler]" />
                 </div>
-                <div class="pick">
-                  <img v-if="currentBrawler !== ''" :src="portraits[currentBrawler]">
+                <div v-if="hideButtonText === 'Hide'" class="pick">
+                  <img
+                    v-if="currentBrawler !== ''"
+                    :src="portraits[currentBrawler]"
+                  />
                 </div>
               </div>
             </div>
@@ -173,8 +178,10 @@
                   </div>
                 </div>
               </div>
-              <div class="red-picks d-flex justify-content-center align-items-center gap-3">
-                <div class="pick" v-for="brawler in redPicks">
+              <div
+                class="red-picks d-flex justify-content-center align-items-center gap-3"
+              >
+                <div v-if="hideButtonText === 'Hide'" class="pick" v-for="brawler in redPicks">
                   <img :src="portraits[brawler]" />
                 </div>
               </div>
@@ -184,6 +191,9 @@
       </div>
       <button class="btn btn-success mute-button" @click="handleMute()">
         {{muteButtonText}}
+      </button>
+      <button v-if="brawlers.length > 0" class="btn btn-secondary hide-button" @click="handleHide()">
+        {{hideButtonText}}
       </button>
       <div class="wrapper">
         <div class="moving-background"></div>

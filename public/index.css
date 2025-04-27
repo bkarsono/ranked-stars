@@ -28,6 +28,13 @@ body {
   z-index: 99999;
 }
 
+.hide-button {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+  z-index: 99999;
+}
+
 .selection-container {
   background-color: black;
 }
