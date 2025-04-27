@@ -51,7 +51,6 @@ body {
   border: black 7px solid;
   cursor: pointer;
   position: relative;
-  height: 20vh;
   overflow: hidden;
   height: 150px;
   min-width: 225px;
